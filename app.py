@@ -1,6 +1,20 @@
 import streamlit as st
 
-col_1, col_2, col_3 = st.columns(3)
-col_1.image("card_images/cards/2_of_clubs.png")
-col_2.image("card_images/cards/3_of_clubs.png")
-col_3.image("card_images/cards/4_of_clubs.png")
+num_cards = 5
+cards = [
+    "card_images/cards/2_of_clubs.png",
+    "card_images/cards/3_of_clubs.png",
+    "card_images/cards/4_of_clubs.png",
+    "card_images/cards/5_of_clubs.png",
+    "card_images/cards/6_of_clubs.png",
+]
+
+with st.expander("Player 1 Hand", expanded=True):
+    columns = st.columns(num_cards)
+    for column, card in zip(columns, cards[:num_cards]):
+        column.image(card)
+
+with st.expander("Player 2 Hand", expanded=False):
+    columns = st.columns(num_cards)
+    for column, card in zip(columns, cards[:num_cards]):
+        column.image(card)
